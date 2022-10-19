@@ -1,14 +1,37 @@
-# Project
+# Fault-aware Neural Code Rankers
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+> This repo has the code accompanying the CodeRanker NeurIPS'22 [paper](https://arxiv.org/pdf/2206.03865.pdf). 
 
-As the maintainer of this project, please make a few updates:
+## Installation
+```
+pip install -r requirements.txt
+```
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+## Dataset download
+Download the ranker datasets obtained using the GPT-Neo and GPT-J code generation models from here. 
+
+
+## Usage
+1. Training rankers
+```
+bash src/finetune.sh DATADIR MODELDIR CACHEDIR TASK
+```
+where DATADIR is the location of the directory containing the desired ranker dataset  
+MODELDIR is the location of the output dirctory where the trained model will be stored  
+CACHEDIR is the location of the cache directory both for caching the model and for caching the dataset  
+TASK is one of binary, ternary, output_error, execution_error, execution_error_with_line
+
+2. Inference with rankers
+```
+bash src/eval.sh DATADIR MODELDIR CACHEDIR TASK {val|test}.json PREDICT_FILENAME
+```
+where PREDICT_FILENAME is the name of the file inside MODELDIR where the inferenced logits will be stored. 
+
+3. Computing the ranked metrics
+```
+python3 compute_metrics.py --data_file=DATADIR/{val|test}.json --logits_prediction_file=MODELDIR/PREDICT_FILENAME --labels_file=DATADIR/labels_TASK.txt --task=TASK
+```
+
 
 ## Contributing
 
