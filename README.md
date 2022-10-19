@@ -12,18 +12,20 @@ Download the ranker datasets obtained using the GPT-Neo and GPT-J code generatio
 
 
 ## Usage
+First, cd into src directory
+
 1. Training rankers
 ```
-bash src/finetune.sh DATADIR MODELDIR CACHEDIR TASK
+bash finetune.sh DATADIR MODELDIR CACHEDIR TASK
 ```
 where DATADIR is the location of the directory containing the desired ranker dataset  
 MODELDIR is the location of the output dirctory where the trained model will be stored  
 CACHEDIR is the location of the cache directory both for caching the model and for caching the dataset  
-TASK is one of binary, ternary, output_error, execution_error, execution_error_with_line
+TASK is one of binary, ternary, intent_error, execution_error, execution_error_with_line
 
 2. Inference with rankers
 ```
-bash src/eval.sh DATADIR MODELDIR CACHEDIR TASK {val|test}.json PREDICT_FILENAME
+bash eval.sh DATADIR MODELDIR CACHEDIR TASK {val|test}.json PREDICT_FILENAME
 ```
 where PREDICT_FILENAME is the name of the file inside MODELDIR where the inferenced logits will be stored. 
 
