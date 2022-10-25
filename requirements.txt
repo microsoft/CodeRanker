@@ -1,0 +1,6 @@
+numpy
+torch>=1.7
+transformers>=4 
+datasets
+scikit-learn
+scipy
