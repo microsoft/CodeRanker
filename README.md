@@ -7,8 +7,8 @@
 pip install -r requirements.txt
 ```
 
-## Dataset download
-Download the ranker datasets obtained using the GPT-Neo and GPT-J code generation models from here. 
+## Dataset 
+The ranker datasets are available through GIT LFS in datasets/ directory
 
 
 ## Usage
