@@ -8,7 +8,7 @@ pip install -r requirements.txt
 ```
 
 ## Dataset 
-The ranker datasets are available through GIT LFS in datasets/ directory
+The ranker datasets are available through GIT LFS in dataset/ directory
 
 
 ## Usage
